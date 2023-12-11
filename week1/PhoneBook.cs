@@ -21,10 +21,10 @@ public class PhoneBook
         Numbers.Remove(number);
         Console.WriteLine("Phone number deleted.\n");
     }
-    public void UpdateNumber(PhoneNumber number, PhoneNumber newPhoneNumber) 
+    public void UpdateNumber(PhoneNumber number, string newPhoneNumber) 
     {
         int temp = Numbers.IndexOf(number);
-        Numbers[temp] = newPhoneNumber;
+        Numbers[temp].Number = newPhoneNumber;
         Console.WriteLine("Number updated.\n");
     }
     public void SortBook(string sorted) 
@@ -51,10 +51,10 @@ public class PhoneBook
         else
             return null;
     }
-    public PhoneNumber FindByNumber(PhoneNumber number) 
+    public PhoneNumber FindByNumber(string number) 
     {
         if (number is not null)
-            return Numbers.FirstOrDefault(num => num == number);
+            return Numbers.FirstOrDefault(num => num.Number == number);
         else
             return null;
     }
